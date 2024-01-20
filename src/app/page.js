@@ -2,10 +2,11 @@
 import classes from "./page.module.css";
 import Input from "@/Components/Input/Input";
 import React from "react";
-
+import Tree from "@/Components/Tree/Tree";
 export default function Home() {
   const [input, setInput] = React.useState();
   const [arr, setArr] = React.useState();
+  const [sub, setSub] = React.useState(false);
   const convert = (input) => {
     var values = input.split(/[,\s]+/);
     var resultArray = values.map(function (value) {
@@ -37,6 +38,7 @@ export default function Home() {
   };
   const submit = () => {
     setArr(convert(input));
+    setSub(true)
   };
   return (
     <main className={classes.main}>
@@ -51,6 +53,7 @@ export default function Home() {
       <button className={classes.btn} onClick={submit}>
         Submit
       </button>
+      {sub && <Tree tree={arr}/>}
     </main>
   );
 }
