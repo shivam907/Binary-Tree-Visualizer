@@ -39,6 +39,7 @@ export default function Home() {
   const submit = () => {
     setArr(convert(input));
     setSub(true)
+    console.log(arr)
   };
   return (
     <main className={classes.main}>
