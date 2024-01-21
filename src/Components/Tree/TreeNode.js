@@ -1,6 +1,18 @@
 import React from "react";
-import classes from "./style2.module.css";
+import light from "./style.module.css";
+import dark from "./style2.module.css";
 const TreeNode = (props) => {
+        const [classes, setClasses]=React.useState(props.theme ? light : dark)
+  React.useEffect(()=>{
+    console.log(props.theme)
+    if (props.theme){
+      setClasses(dark)
+    }
+    else{
+      setClasses(light)
+    }
+  },[props.theme])
+
   return (
     <>
       <div className={`${classes.node} ${props.value?'':classes.null}`}>

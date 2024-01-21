@@ -6,7 +6,7 @@
   border-bottom-left-radius: 0.7rem;
     padding: 1rem 20px;
     font-size: 1.75rem;
-    color: #fff;
+    color: #333;
     background-color: transparent;
     outline: none;
 }
@@ -67,12 +67,12 @@
 .label{
     display: flex;
     justify-content: space-between;
-    color: #fff;
+    color: #333;
     align-items: flex-end;
 }
 .label span{
     font-size: 12px;
-    color: #ffffff80;
+    color: #33333380;
     font-style: italic;
 }
 .label .required{

@@ -44,7 +44,8 @@
     border-radius: 50%;
     max-width: 5rem;
     max-height: 5rem;
-    
+    /* z-index: 9; */
+    /* overflow: hidden; */
     position: relative;
     font-size: 1.6rem;
     background-color: aliceblue;
@@ -55,7 +56,8 @@
     border: 0.5px solid #000;
 }
 .lline1{
-    z-index: -9;
+    z-index: -9 !important;
+    /* overflow: hidden; */
     position: absolute;
     height: 19rem;
     background-color: #000;
@@ -64,7 +66,7 @@
     width: 2px;
 }
 .rline1{
-    z-index: -9;
+    z-index: -9 !important;
     position: absolute;
     height: 19rem;
     background-color: #000;
@@ -100,7 +102,7 @@
     width: 2px;
 }
 .rline3{
-    z-index: -9;
+    /* z-index: -9; */
     position: absolute;
     height: 10rem;
     background-color: #000;

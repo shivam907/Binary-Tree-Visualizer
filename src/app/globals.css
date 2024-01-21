@@ -10,7 +10,7 @@ html,
 body {
   /* max-width: 70vw; */
   margin: 0 auto;
-  background-color: #333;
+  /* background-color: #333; */
   z-index: -99;
   /* overflow-x: hidden; */
   height: 100vh;
@@ -91,6 +91,6 @@ html {
 
 
 body:has(#darkmode-toggle:checked) {
-  background-position: 100% 100%;
+  background-position: 10% 10%;
   color: #d0d0d0;
 }
