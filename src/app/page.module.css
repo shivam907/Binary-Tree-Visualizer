@@ -69,8 +69,27 @@
 
 .download{
   position: absolute;
-  top: 1rem;
+  padding: 0.7rem 2rem;
+  border: 1px solid #33333380;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #333333ca;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  justify-content: center;
+  font-size: 1.4rem;
+  bottom: -1rem;
   right: 1rem;
+}
+.download:hover{
+  color: #000;
+  border: 1px solid #000;
+  background-color: #00000010;
+  cursor: pointer;
+}
+.icon{
+  font-size: 2rem !important;
 }
 .body{
   width: 100vw;

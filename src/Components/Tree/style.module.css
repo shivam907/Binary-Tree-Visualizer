@@ -102,7 +102,7 @@
     width: 2px;
 }
 .rline3{
-    /* z-index: -9; */
+    z-index: -9;
     position: absolute;
     height: 10rem;
     background-color: #000;

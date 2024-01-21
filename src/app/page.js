@@ -6,6 +6,7 @@ import React from "react";
 import Tree from "@/Components/Tree/Tree";
 import Link from "next/link";
 import html2canvas from "html2canvas";
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Home() {
 
@@ -108,12 +109,13 @@ const exportRef = React.useRef();
         {sub && (
           <div className={classes.box}>
             <Tree theme={theme} reff={exportRef} tree={arr} />
-            <button
+            <div
               onClick={() => exportAsImage(exportRef.current, "test")}
               className={classes.download}
             >
               Download
-            </button>
+            <DownloadIcon className={classes.icon}/>
+            </div>
           </div>
         )}
         <div className={classes.foot}>
