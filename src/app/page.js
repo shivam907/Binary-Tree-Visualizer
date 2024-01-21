@@ -4,10 +4,33 @@ import Input from "@/Components/Input/Input";
 import React from "react";
 import Tree from "@/Components/Tree/Tree";
 import Link from "next/link";
+import html2canvas from "html2canvas";
+
 export default function Home() {
+  const exportAsImage = async (el, imageFileName) => {
+    console.log(el)
+    const canvas = await html2canvas(el);
+    const image = canvas.toDataURL("image/png", 1.0);
+    downloadImage(image, imageFileName);
+  };
+  const downloadImage = (blob, fileName) => {
+    const fakeLink = window.document.createElement("a");
+    fakeLink.style = "display:none;";
+    fakeLink.download = fileName;
+  
+    fakeLink.href = blob;
+  
+    document.body.appendChild(fakeLink);
+    fakeLink.click();
+    document.body.removeChild(fakeLink);
+  
+    fakeLink.remove();
+  };
   const [input, setInput] = React.useState();
   const [arr, setArr] = React.useState();
   const [sub, setSub] = React.useState(false);
+
+const exportRef = React.useRef();
   const convert = (input) => {
     var values = input.split(/[,\s]+/);
     var resultArray = values.map(function (value) {
@@ -57,14 +80,19 @@ export default function Home() {
           Submit
         </button>
       </div>
-      {sub && <Tree tree={arr} />}
+      {sub && 
+      <div className={classes.box}>
+
+      <Tree reff={exportRef} tree={arr} />
+      <button onClick={() => exportAsImage(exportRef.current, "test")} className={classes.download}>Download</button>
+      </div>
+      }
       <div className={classes.foot}>
         <footer className={classes.footer}>
           Made with <img className={classes.heart} src="./heart.gif" alt="" />{" "}
-          by 
+          by
           <Link className={classes.link} href="https://shivamkaushal.in">
-
-          shivamkaushal.in
+            shivamkaushal.in
           </Link>
         </footer>
       </div>

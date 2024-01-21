@@ -61,3 +61,13 @@
   text-decoration: none;
   margin-left: 1rem;
 }
+
+.box{
+  position: relative;
+}
+
+.download{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

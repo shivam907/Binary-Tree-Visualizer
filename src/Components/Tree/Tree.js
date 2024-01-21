@@ -8,7 +8,7 @@ const Tree = (props) => {
   for (let i = 0; i < props.tree.length; i++) {
     arr.push(<TreeNodes values={props.tree[i]} i={i} />);
   }
-  return <div className={classes.tree}>{arr}</div>;
+  return <div ref={props.reff} className={classes.tree}>{arr}</div>;
 };
 
 export default Tree;

@@ -61,7 +61,7 @@
     background-color: #000;
     transform: translateY(-25%) rotate(64deg);
     right: -7rem;
-    width: 5px;
+    width: 2px;
 }
 .rline1{
     z-index: -9;
@@ -70,7 +70,7 @@
     background-color: #000;
     transform: translateY(-25%) rotate(-64deg);
     right: 12rem;
-    width: 5px;
+    width: 2px;
 }
 .lline2{
     z-index: -9;
@@ -79,7 +79,7 @@
     background-color: #000;
     transform: translateY(-30%) rotate(50deg);
     right: -2rem;
-    width: 5px;
+    width: 2px;
 }
 .rline2{
     z-index: -9;
@@ -88,7 +88,7 @@
     background-color: #000;
     transform: translateY(-30%) rotate(-50deg);
     right: 7rem;
-    width: 5px;
+    width: 2px;
 }
 .lline3{
     z-index: -9;
@@ -97,7 +97,7 @@
     background-color: #000;
     transform: translateY(-30%) rotate(37deg);
     right: 1rem;
-    width: 5px;
+    width: 2px;
 }
 .rline3{
     z-index: -9;
@@ -106,7 +106,7 @@
     background-color: #000;
     transform: translateY(-30%) rotate(-37deg);
     right: 4rem;
-    width: 5px;
+    width: 2px;
 }
 /* .lline4{
     z-index: -9;
