@@ -67,6 +67,12 @@ const exportRef = React.useRef();
   };
   return (
     <main className={classes.main}>
+      <div className={classes.dark}>
+        <input type="checkbox" class="sr-only" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="toggle">
+          <span>Toggle dark mode</span>
+        </label>
+      </div>
       <h1 className={classes.heading}>Binary Tree Visualizer</h1>
       <div className={classes.block}>
         <Input
@@ -80,13 +86,17 @@ const exportRef = React.useRef();
           Submit
         </button>
       </div>
-      {sub && 
-      <div className={classes.box}>
-
-      <Tree reff={exportRef} tree={arr} />
-      <button onClick={() => exportAsImage(exportRef.current, "test")} className={classes.download}>Download</button>
-      </div>
-      }
+      {sub && (
+        <div className={classes.box}>
+          <Tree reff={exportRef} tree={arr} />
+          <button
+            onClick={() => exportAsImage(exportRef.current, "test")}
+            className={classes.download}
+          >
+            Download
+          </button>
+        </div>
+      )}
       <div className={classes.foot}>
         <footer className={classes.footer}>
           Made with <img className={classes.heart} src="./heart.gif" alt="" />{" "}

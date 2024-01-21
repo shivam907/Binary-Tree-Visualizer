@@ -15,3 +15,82 @@ body {
   /* overflow-x: hidden; */
   height: 100vh;
 }
+
+/*
+  📣 Note: all sizes are in ems, so change the .toggle font-size to
+  scale to whatever size you need.
+*/
+
+.toggle {
+  font-size: 2rem; /* 👈 change this to scale */
+  border: .125em solid currentColor;
+  border-radius: 2em;
+  cursor: pointer;
+  display: block;
+  height: 2em;
+  position: relative;
+  width: 3.75em;
+}
+.toggle span {
+  background-color: currentColor;
+  border-radius: 2em;
+  display: block;
+  height: 2.5em;
+  left: 0.25em;
+  /* right: 2.25em; */
+  overflow: hidden;
+  position: absolute;
+  top: 0.18em;
+  text-indent: -9999px;
+  transition: left .25s;
+  width: 2.5em;
+  z-index: 2;
+}
+
+.toggle::before,
+.toggle::after {
+  content: '';
+  display: block;
+  border-radius: 1em;
+  position: absolute;
+  z-index: 1;
+}
+
+.toggle::after {
+  box-shadow: .25em .25em #5901d8;
+  height: 1.125em;
+  right: .9em;
+  top: .125em;
+  width: 1.125em;
+}
+
+.toggle::before {
+  background-color: #ffc409;
+  height: .625em;
+  outline: .25em dotted #ffc409;
+  outline-offset: .125em;
+  left: .7em;
+  top: .7em;
+  width: .625em;
+}
+
+input:checked ~ .toggle span {
+  left: 2.9em;
+}
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+
+body:has(#darkmode-toggle:checked) {
+  background-position: 100% 100%;
+  color: #d0d0d0;
+}
