@@ -1,0 +1,74 @@
+.main{
+  display: flex;
+  margin: 0 auto;
+  width: 65vw;
+  height: 100vh;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 5rem;
+}
+.heading{
+  font-size: 5rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10rem;
+}
+.btn{
+  padding: 1rem 4rem;
+  align-self: flex-end;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border-top-right-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+  border: none;
+  font-size: 2rem;
+}
+.btn:hover{
+  background-color: #fff;
+  cursor: pointer;
+}
+.block{
+  display: flex;
+  align-items: center;
+}
+.footer{
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-top: 1px solid #ffffff80;
+  font-size: 1.8rem;
+  color: #ffffff90;
+  font-weight: 700;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
+}
+.heart{
+  width: 3rem;
+  margin: 0 1rem;
+}
+.link{
+  color: blue !important;
+  font-size: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.box{
+  position: relative;
+}
+
+.download{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

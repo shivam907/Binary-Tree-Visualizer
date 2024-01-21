@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import classes from "./Input.module.css";
+import classes from "./style.module.css";
 
 const Input = (props) => {
   return (

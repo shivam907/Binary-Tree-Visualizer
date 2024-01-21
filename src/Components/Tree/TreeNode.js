@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./style.module.css";
+import classes from "./style2.module.css";
 const TreeNode = (props) => {
   return (
     <>

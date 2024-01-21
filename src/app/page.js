@@ -1,5 +1,5 @@
 "use client";
-import classes from "./page.module.css";
+import classes from "./style.module.css";
 import Input from "@/Components/Input/Input";
 import React from "react";
 import Tree from "@/Components/Tree/Tree";

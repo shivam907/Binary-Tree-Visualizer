@@ -10,6 +10,8 @@ html,
 body {
   /* max-width: 70vw; */
   margin: 0 auto;
+  background-color: #333;
+  z-index: -99;
   /* overflow-x: hidden; */
   height: 100vh;
 }

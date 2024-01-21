@@ -1,6 +1,6 @@
 import React from "react";
 import TreeNodes from "./TreeNodes";
-import classes from "./style.module.css";
+import classes from "./style2.module.css";
 
 const Tree = (props) => {
   let arr = [];

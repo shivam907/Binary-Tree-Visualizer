@@ -1,0 +1,132 @@
+.tree{
+    display: flex;
+    flex-direction: column;
+    /* background-color: antiquewhite; */
+    /* border: 1px solid #000; */
+    padding: 5rem;
+    align-self: flex-start;
+    gap: 3rem;
+}
+
+.nodes:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.nodes:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32rem;
+}
+.nodes:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14rem;
+}
+.nodes:nth-child(4){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.8rem;
+}
+.nodes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.node{
+    padding: 2rem;
+    border-radius: 50%;
+    max-width: 5rem;
+    max-height: 5rem;
+    
+    position: relative;
+    font-size: 1.6rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    border: 0.5px solid #ffffff40;
+}
+.lline1{
+    /* z-index: -9; */
+    position: absolute;
+    height: 19rem;
+    background-color: #fff;
+    transform: translateY(-25%) rotate(64deg);
+    right: -7rem;
+    width: 2px;
+}
+.rline1{
+    /* z-index: -9; */
+    position: absolute;
+    height: 19rem;
+    background-color: #fff;
+    transform: translateY(-25%) rotate(-64deg);
+    right: 12rem;
+    width: 2px;
+}
+.lline2{
+    /* z-index: -9; */
+    position: absolute;
+    height: 12rem;
+    background-color: #fff;
+    transform: translateY(-30%) rotate(50deg);
+    right: -2rem;
+    width: 2px;
+}
+.rline2{
+    /* z-index: -9; */
+    position: absolute;
+    height: 12rem;
+    background-color: #fff;
+    transform: translateY(-30%) rotate(-50deg);
+    right: 7rem;
+    width: 2px;
+}
+.lline3{
+    /* z-index: -9; */
+    position: absolute;
+    height: 10rem;
+    background-color: #fff;
+    transform: translateY(-30%) rotate(37deg);
+    right: 1rem;
+    width: 2px;
+}
+.rline3{
+    /* z-index: -9; */
+    position: absolute;
+    height: 10rem;
+    background-color: #fff;
+    transform: translateY(-30%) rotate(-37deg);
+    right: 4rem;
+    width: 2px;
+}
+/* .lline4{
+    z-index: -9;
+    position: absolute;
+    height: 10rem;
+    background-color: #000;
+    transform: translateY(-100%) rotate(37deg);
+    right: 1rem;
+    width: 5px;
+}
+.rline4{
+    z-index: -9;
+    position: absolute;
+    height: 10rem;
+    background-color: #000;
+    transform: translateY(-110%) rotate(-37deg);
+    right: 4rem;
+    width: 5px;
+} */
+
+.null{
+    opacity: 0;
+}
