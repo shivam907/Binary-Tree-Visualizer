@@ -43,6 +43,7 @@
     padding: 2rem;
     border-radius: 50%;
     max-width: 5rem;
+    max-height: 5rem;
     
     position: relative;
     font-size: 1.6rem;
@@ -58,7 +59,7 @@
     position: absolute;
     height: 19rem;
     background-color: #000;
-    transform: translateY(-30%) rotate(62deg);
+    transform: translateY(-25%) rotate(64deg);
     right: -7rem;
     width: 5px;
 }
@@ -67,7 +68,7 @@
     position: absolute;
     height: 19rem;
     background-color: #000;
-    transform: translateY(-30%) rotate(-62deg);
+    transform: translateY(-25%) rotate(-64deg);
     right: 12rem;
     width: 5px;
 }
@@ -85,7 +86,7 @@
     position: absolute;
     height: 12rem;
     background-color: #000;
-    transform: translateY(-30%) rotate(-52deg);
+    transform: translateY(-30%) rotate(-50deg);
     right: 7rem;
     width: 5px;
 }

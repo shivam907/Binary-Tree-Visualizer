@@ -2,6 +2,7 @@
   display: flex;
   margin: 0 auto;
   width: 65vw;
+  height: 100vh;
   margin: 0 auto;
   flex-direction: column;
   padding: 5rem;
@@ -31,10 +32,18 @@
   align-items: center;
 }
 .footer{
-  width: 100%;
+  width: 70%;
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   padding: 2rem;
   border-top: 1px solid #33333380;
   font-size: 2rem;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
 }

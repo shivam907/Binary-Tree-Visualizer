@@ -57,7 +57,10 @@ export default function Home() {
         </button>
       </div>
       {sub && <Tree tree={arr} />}
+      <div className={classes.foot}>
+
       <footer className={classes.footer}>Made By Shivam Kaushal</footer>
+      </div>
     </main>
   );
 }
