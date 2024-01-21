@@ -1,9 +1,11 @@
 .input{
     width: 100%;
     border: 1px solid #9E9E9E;
-    border-radius: 2px;
-    padding: 10px 20px;
-    font-size: 16px;
+    
+  border-top-left-radius: 0.7rem;
+  border-bottom-left-radius: 0.7rem;
+    padding: 1rem 20px;
+    font-size: 1.75rem;
     color: #616161;
     background-color: transparent;
     outline: none;

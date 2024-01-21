@@ -44,17 +44,20 @@ export default function Home() {
   return (
     <main className={classes.main}>
       <h1 className={classes.heading}>Binary Tree Visualizer</h1>
-      <Input
-        label="Enter value of Binary trees"
-        opt="seprated by comma or space"
-        type="text"
-        placeholder="1, 2, 3"
-        onSubmit={inputHandler}
-      />
-      <button className={classes.btn} onClick={submit}>
-        Submit
-      </button>
-      {sub && <Tree tree={arr}/>}
+      <div className={classes.block}>
+        <Input
+          label="Enter value of Binary trees"
+          opt="seprated by comma or space"
+          type="text"
+          placeholder="1, 2, 3"
+          onSubmit={inputHandler}
+        />
+        <button className={classes.btn} onClick={submit}>
+          Submit
+        </button>
+      </div>
+      {sub && <Tree tree={arr} />}
+      <footer className={classes.footer}>Made By Shivam Kaushal</footer>
     </main>
   );
 }
