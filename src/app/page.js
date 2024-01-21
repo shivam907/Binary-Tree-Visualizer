@@ -3,6 +3,7 @@ import classes from "./page.module.css";
 import Input from "@/Components/Input/Input";
 import React from "react";
 import Tree from "@/Components/Tree/Tree";
+import Link from "next/link";
 export default function Home() {
   const [input, setInput] = React.useState();
   const [arr, setArr] = React.useState();
@@ -46,10 +47,10 @@ export default function Home() {
       <h1 className={classes.heading}>Binary Tree Visualizer</h1>
       <div className={classes.block}>
         <Input
-          label="Enter value of Binary trees"
+          label="Enter value of Binary trees in Level Order Traversal"
           opt="seprated by comma or space"
           type="text"
-          placeholder="1, 2, 3"
+          placeholder="1, 2, 3, null, null, 4"
           onSubmit={inputHandler}
         />
         <button className={classes.btn} onClick={submit}>
@@ -58,8 +59,14 @@ export default function Home() {
       </div>
       {sub && <Tree tree={arr} />}
       <div className={classes.foot}>
+        <footer className={classes.footer}>
+          Made with <img className={classes.heart} src="./heart.gif" alt="" />{" "}
+          by 
+          <Link className={classes.link} href="https://shivamkaushal.in">
 
-      <footer className={classes.footer}>Made By Shivam Kaushal</footer>
+          shivamkaushal.in
+          </Link>
+        </footer>
       </div>
     </main>
   );
