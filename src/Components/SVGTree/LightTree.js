@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import classes from "./classes.module.css";
 
-const BinaryTree = (props) => {
+const LightTree = (props) => {
   const svgRef = useRef(null);
 
   useEffect(() => {
@@ -38,15 +38,14 @@ const BinaryTree = (props) => {
       .attr("cx", (d) => {
         // console.log(d.parent)
         if (d.parent && d.parent.children.length === 1) {
-            // console.log("prnt",d.parent)
-            if(d.parent.children[0].data.right) {
-                console.log("right")
-                return d.parent.x + 50;
-            }
-            else{
-                // console.log("left", d.parent)
-                 return Number(d.parent.x)-50;
-            }
+          // console.log("prnt",d.parent)
+          if (d.parent.children[0].data.right) {
+            console.log("right");
+            return d.parent.x + 50;
+          } else {
+            // console.log("left", d.parent)
+            return Number(d.parent.x) - 50;
+          }
         } else {
           return d.x;
         }
@@ -66,14 +65,13 @@ const BinaryTree = (props) => {
       .append("path")
       .attr("d", (d) => {
         if (d.source.parent && d.source.children.length === 1) {
-            console.log(d.source)
+          console.log(d.source);
           const sourceX = d.source.x;
           const sourceY = d.source.y;
           let targetX = d.target.x;
-          if(d.source.children[0].data.right){
-            targetX+=50
-          }
-          else targetX-=50
+          if (d.source.children[0].data.right) {
+            targetX += 50;
+          } else targetX -= 50;
           const targetY = d.target.y;
 
           const controlPointX1 = sourceX;
@@ -134,8 +132,8 @@ const BinaryTree = (props) => {
       .text((d) => d.data.child)
       .attr("x", (d) => {
         if (d.parent && d.parent.children.length === 1) {
-            if(d.parent.children[0].data.left) return d.parent.x - 50;
-            else return d.parent.x + 50;
+          if (d.parent.children[0].data.left) return d.parent.x - 50;
+          else return d.parent.x + 50;
         } else {
           return d.x;
         }
@@ -146,10 +144,6 @@ const BinaryTree = (props) => {
       .style("fill", "#fff")
       .style("font-size", "20px")
       .style("text-anchor", "middle");
-
-//         let bb = svg.node().getBBox();
-//   svg.attr("width", bb.width*2);
-//   svg.attr("height", bb.height);
   }, []);
 
   return (
@@ -159,4 +153,4 @@ const BinaryTree = (props) => {
   );
 };
 
-export default BinaryTree;
+export default LightTree;

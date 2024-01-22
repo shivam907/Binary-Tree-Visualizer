@@ -3,10 +3,10 @@ import dark from "./page.module.css";
 import light from "./style.module.css";
 import Input from "@/Components/Input/Input";
 import React from "react";
-import Tree from "@/Components/Tree/Tree";
+import LightTree from "@/Components/SVGTree/LightTree";
+import DarkTree from "@/Components/SVGTree/DarkTree";
 import Link from "next/link";
 import html2canvas from "html2canvas";
-import BinaryTree from "@/Components/SVGTree/Tree";
 import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Home() {
@@ -53,7 +53,7 @@ const exportRef = React.useRef();
   const convert = (input) => {
     var values = input.split(/[,\s]+/);
     var resultArray = values.map(function (value) {
-      return value.toLowerCase() === "null" || value.toLowerCase() === "n"
+      return value.toLowerCase() === "null" || value.toLowerCase() === "n" || value==-1
         ? null
         : parseFloat(value);
     });
@@ -129,7 +129,13 @@ const exportRef = React.useRef();
         </div>
         {sub && (
           <div className={classes.box}>
-            <BinaryTree theme={theme} reff={exportRef} tree={arr} />
+          <div className={classes.space} ref={exportRef}>
+
+          {!theme?
+            <LightTree theme={theme} reff={exportRef} tree={arr} />:
+            <DarkTree theme={theme} reff={exportRef} tree={arr} />
+          }
+          </div>
             <div
               onClick={() => exportAsImage(exportRef.current, "test")}
               className={classes.download}
