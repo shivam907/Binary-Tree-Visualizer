@@ -79,10 +79,10 @@ const exportRef = React.useRef();
     for (let i = 0; i < ver.length - 1; i++) {
       for (let j = 0; j < ver[i].length; j++) {
         if(ver[i+1][j*2]!=null){
-        ans.push({ child: ver[i+1][j*2], parent: ver[i][j] });
+          ans.push({ child: ver[i+1][j*2], parent: ver[i][j], left:true });
         }
         if(ver[i+1][j*2+1]!=null){
-        ans.push({ child: ver[i+1][j*2+1], parent: ver[i][j] });
+          ans.push({ child: ver[i+1][j*2+1], parent: ver[i][j], right:true });
         }
       }
     }

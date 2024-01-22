@@ -34,7 +34,22 @@ const BinaryTree = (props) => {
     rectangles
       .enter()
       .append("circle")
-      .attr("cx", (d) => d.x)
+      .attr("cx", (d) => {
+        // console.log(d.parent)
+        if (d.parent && d.parent.children.length === 1) {
+            // console.log("prnt",d.parent)
+            if(d.parent.children[0].data.right) {
+                console.log("right")
+                return d.parent.x + 50;
+            }
+            else{
+                // console.log("left", d.parent)
+                 return Number(d.parent.x)-50;
+            }
+        } else {
+          return d.x;
+        }
+      })
       .attr("cy", (d) => d.y)
       .attr("r", 25)
       .style("fill", "#333")
@@ -48,15 +63,62 @@ const BinaryTree = (props) => {
     connections
       .enter()
       .append("path")
-      .attr(
-        "d",
-        (d) =>
-          `M${d.source.x},${d.source.y} C ${d.source.x},${
-            (d.source.y + d.target.y) / 2
-          } ${d.target.x},${(d.source.y + d.target.y) / 2} ${d.target.x},${
+      .attr("d", (d) => {
+        if (d.source.parent && d.source.children.length === 1) {
+            console.log(d.source)
+          const sourceX = d.source.x;
+          const sourceY = d.source.y;
+          let targetX = d.target.x;
+          if(d.source.children[0].data.right){
+            targetX+=50
+          }
+          else targetX-=50
+          const targetY = d.target.y;
+
+          const controlPointX1 = sourceX;
+          const controlPointY1 = (sourceY + targetY) / 2;
+          const controlPointX2 = targetX;
+          const controlPointY2 = (sourceY + targetY) / 2;
+
+          return (
+            "M" +
+            sourceX +
+            "," +
+            sourceY +
+            " C " +
+            controlPointX1 +
+            "," +
+            controlPointY1 +
+            " " +
+            controlPointX2 +
+            "," +
+            controlPointY2 +
+            " " +
+            targetX +
+            "," +
+            targetY
+          );
+        } else {
+          return (
+            "M" +
+            d.source.x +
+            "," +
+            d.source.y +
+            " C " +
+            d.source.x +
+            "," +
+            (d.source.y + d.target.y) / 2 +
+            " " +
+            d.target.x +
+            "," +
+            (d.source.y + d.target.y) / 2 +
+            " " +
+            d.target.x +
+            "," +
             d.target.y
-          }`
-      )
+          );
+        }
+      })
       .style("fill", "none")
       .style("stroke", "#333");
 
@@ -69,7 +131,14 @@ const BinaryTree = (props) => {
       .enter()
       .append("text")
       .text((d) => d.data.child)
-      .attr("x", (d) => d.x)
+      .attr("x", (d) => {
+        if (d.parent && d.parent.children.length === 1) {
+            if(d.parent.children[0].data.left) return d.parent.x - 50;
+            else return d.parent.x + 50;
+        } else {
+          return d.x;
+        }
+      })
       .attr("y", (d) => d.y)
       .style("dominant-baseline", "middle")
       .style("color", "#fff")
