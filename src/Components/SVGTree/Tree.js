@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import classes from "./classes.module.css";
 
 const BinaryTree = (props) => {
   const svgRef = useRef(null);
@@ -145,10 +146,14 @@ const BinaryTree = (props) => {
       .style("fill", "#fff")
       .style("font-size", "20px")
       .style("text-anchor", "middle");
+
+//         let bb = svg.node().getBBox();
+//   svg.attr("width", bb.width*2);
+//   svg.attr("height", bb.height);
   }, []);
 
   return (
-    <svg width={600} height={600} ref={svgRef}>
+    <svg className={classes.svg} ref={svgRef} viewBox="0 0 1000 1000">
       {/* SVG content will be rendered here */}
     </svg>
   );
