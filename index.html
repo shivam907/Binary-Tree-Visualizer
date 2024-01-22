@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binary Tree with D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <style>
+      circle {
+        /* fill: black; */
+        fill: #333;
+        background-color: aliceblue;
+        overflow: hidden;
+        z-index: 99;
+        position: relative;
+        stroke: black;
+      }
+      path {
+        fill: none;
+        z-index: -1;
+        stroke: #333;
+        position: absolute;
+        z-index: 9;
+      }
+      text {
+        dominant-baseline: middle;
+        color: #fff;
+        fill: #fff;
+        text-anchor: middle;
+      }
+    </style>
+    <script>
+      var svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", 600)
+        .attr("height", 600)
+        .append("g")
+        .attr("transform", "translate(50,50)");
+      var data = [
+        { child: "1", parent: "" },
+        { child: "2", parent: "1" },
+        { child: "3", parent: "1" },
+        { child: "4", parent: "2" },
+        { child: "5", parent: "2" },
+        { child: "6", parent: "3" },
+        { child: "7", parent: "3" },
+        { child: "8", parent: "4" },
+      ];
+
+      var dataStructure = d3
+        .stratify()
+        .id(function (d) {
+          return d.child;
+        })
+        .parentId(function (d) {
+          return d.parent;
+        })(data);
+
+      var treeStructure = d3.tree().size([500, 300]);
+      var information = treeStructure(dataStructure);
+      var rectangles = svg
+        .append("g")
+        .selectAll("circle")
+        .data(information.descendants());
+
+      // rectangles.enter().append("circle").attr("cx", function(d){return d.x;}).attr("cy", function(d){return d.y;}).attr("r",25)
+      rectangles
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+          if (d.parent && d.parent.children.length === 1) {
+            // console.log(d.parent)
+            return d.parent.x - 50; // Set the x-coordinate of the child to be the same as the parent
+          } else {
+            // console.log(d.parent)
+            return d.x;
+          }
+        })
+        .attr("cy", function (d) {
+          return d.y;
+        })
+        .attr("r", 25);
+      var connections = svg
+        .append("g")
+        .selectAll("path")
+        .data(information.links());
+      connections
+        .enter()
+        .append("path")
+        .attr("d", function (d) {
+          console.log(d);
+          if (d.source.parent && d.source.children.length == 1) {
+            console.log("pl");
+            var sourceX = d.source.x;
+            var sourceY = d.source.y;
+            var targetX = d.target.x-50;
+            var targetY = d.target.y;
+
+            // Adjust control points to create a curve
+            var controlPointX1 = sourceX; // You can adjust this value to control the curve
+            var controlPointY1 = (sourceY + targetY) / 2;
+            // controlPointY1-=50
+            var controlPointX2 = targetX ; // You can adjust this value to control the curve
+            var controlPointY2 = (sourceY + targetY) / 2;
+            // controlPointY2+=50
+
+            return (
+              "M" +
+              sourceX +
+              "," +
+              sourceY +
+              " C " +
+              controlPointX1 +
+              "," +
+              controlPointY1 +
+              " " +
+              controlPointX2 +
+              "," +
+              controlPointY2 +
+              " " +
+              targetX +
+              "," +
+              targetY
+            );
+          } else return "M" + d.source.x + "," + d.source.y + " C " + d.source.x + "," + (d.source.y + d.target.y) / 2 + " " + d.target.x + "," + (d.source.y + d.target.y) / 2 + " " + d.target.x + "," + d.target.y;
+        });
+
+      var names = svg
+        .append("g")
+        .selectAll("text")
+        .data(information.descendants());
+
+      names
+        .enter()
+        .append("text")
+        .text(function (d) {
+          return d.data.child;
+        })
+        .attr("x", function (d) {
+    if (d.parent && d.parent.children.length === 1) {
+      return d.parent.x - 50; // Adjust the x-coordinate for single child
+    } else {
+      return d.x;
+    }
+        })
+        .attr("y", function (d) {
+          return d.y;
+        });
+    </script>
+  </body>
+</html>

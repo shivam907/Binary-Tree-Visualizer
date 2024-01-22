@@ -3,7 +3,8 @@ import dark from "./page.module.css";
 import light from "./style.module.css";
 import Input from "@/Components/Input/Input";
 import React from "react";
-import Tree from "@/Components/Tree/Tree";
+import LightTree from "@/Components/SVGTree/LightTree";
+import DarkTree from "@/Components/SVGTree/DarkTree";
 import Link from "next/link";
 import html2canvas from "html2canvas";
 import DownloadIcon from '@mui/icons-material/Download';
@@ -52,7 +53,7 @@ const exportRef = React.useRef();
   const convert = (input) => {
     var values = input.split(/[,\s]+/);
     var resultArray = values.map(function (value) {
-      return value.toLowerCase() === "null" || value.toLowerCase() === "n"
+      return value.toLowerCase() === "null" || value.toLowerCase() === "n" || value==-1
         ? null
         : parseFloat(value);
     });
@@ -72,7 +73,22 @@ const exportRef = React.useRef();
       c = c * 2;
       ver.push(temp);
     }
-    return ver;
+    console.log(ver);
+    if (ver.length == 1) return [{ child: ver[0][0], parent: "" }];
+    let ans = [{ child: ver[0][0], parent: "" }];
+    for (let i = 0; i < ver.length - 1; i++) {
+      for (let j = 0; j < ver[i].length; j++) {
+        if(ver[i+1][j*2]!=null){
+          ans.push({ child: ver[i+1][j*2], parent: ver[i][j], left:true });
+        }
+        if(ver[i+1][j*2+1]!=null){
+          ans.push({ child: ver[i+1][j*2+1], parent: ver[i][j], right:true });
+        }
+      }
+    }
+    console.log(ans);
+    return ans;
+    // return ver;
   };
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -87,7 +103,12 @@ const exportRef = React.useRef();
     <div className={classes.body}>
       <main className={classes.main}>
         <div className={classes.dark}>
-          <input onClick={changeTheme} type="checkbox" class="sr-only" id="darkmode-toggle" />
+          <input
+            onClick={changeTheme}
+            type="checkbox"
+            class="sr-only"
+            id="darkmode-toggle"
+          />
           <label for="darkmode-toggle" class="toggle">
             <span>Toggle dark mode</span>
           </label>
@@ -108,7 +129,13 @@ const exportRef = React.useRef();
         </div>
         {sub && (
           <div className={classes.box}>
-            <Tree theme={theme} reff={exportRef} tree={arr} />
+          <div className={classes.space} ref={exportRef}>
+
+          {!theme?
+            <LightTree theme={theme} reff={exportRef} tree={arr} />:
+            <DarkTree theme={theme} reff={exportRef} tree={arr} />
+          }
+          </div>
             <div
               onClick={() => exportAsImage(exportRef.current, "test")}
               className={classes.download}
